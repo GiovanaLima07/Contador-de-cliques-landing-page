@@ -61,16 +61,6 @@ O servidor sobe em `http://localhost:3000` com hot reload automático.
 
 ---
 
-## Scripts
-
-| Comando | Descrição |
-|---|---|
-| `npm run dev` | Inicia o servidor de desenvolvimento (porta 3000) |
-| `npm run build` | Gera o build de produção em `/dist` |
-| `npm run preview` | Pré-visualiza o build de produção localmente |
-
----
-
 ## Build e deploy
 
 ```bash
