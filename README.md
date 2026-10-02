@@ -1,5 +1,7 @@
 Template estático de loja de móveis planejados, construído com **Vite + Bootstrap 5 + SCSS**.
 
+https://giovanalima07.github.io/Contador-de-cliques-landing-page/index.html
+
 ---
 
 ## Tecnologias
