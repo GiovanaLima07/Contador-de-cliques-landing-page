@@ -1,0 +1,113 @@
+// Swiper
+
+@at-root {
+	:root {
+		--swiper-theme-color: #{$primary};
+	}
+}
+.swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.swiper-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+	width: 21px;
+	top: 50%;
+}
+.swiper-pagination-bullet {
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
+	background: transparent;
+	opacity: 0.3;
+	border: 2px solid $primary;
+}
+
+.swiper-pagination-bullet-active {
+	opacity: var(--swiper-pagination-bullet-opacity, 1);
+	background: $primary;
+	border-color: $primary;
+}
+
+[data-navigation="false"] .swiper-navigation {
+	display: none;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.swiper-pagination-light {
+	.swiper-pagination-bullet {
+		border-color: $white;
+		color: $white;
+		width: 10px;
+		height: 10px;
+	}
+}
+
+.swiper-pagination-numbers {
+	width: 28px;
+	height: 28px;
+	display: inline-block;
+	border-radius: 50%;
+	background: $gray-200;
+	margin: auto 2px;
+
+	line-height: 28px;
+	color: #000;
+}
+
+.swiper-pagination-numbers-active {
+	opacity: 1;
+	background: $primary;
+	color: $white;
+}
+.swiper-button-prev, .swiper-button-next {
+    svg {
+      display: none;
+    }
+}
+
+.swiper-button-prev {
+	left: auto;
+	right: 0;
+	position: absolute;
+	
+
+	&:after {
+		content: "\F12F";
+		font-family: "bootstrap-icons";
+		font-size: 40px;
+		color: #000;
+	}
+}
+.swiper-button-next {
+	left: 0;
+	right: auto;
+	position: absolute;
+	&:after {
+		content: "\F138";
+		font-family: "bootstrap-icons";
+		font-size: 40px;
+		color: #000;
+	}
+}
+
+[data-navigation="false"] .swiper-navigation {
+	display: none;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.swiper-thumbs .swiper-slide {
+	// width: auto;
+	// @media (min-width: 768px) {
+	//   width: 100% !important;
+	// }
+
+	height: 100%;
+	margin-right: 10px !important;
+	&.swiper-slide-thumb-active {
+		border: 1px solid #000000;
+	}
+}
+
+.swiper-fade .swiper-slide-active {
+	cursor: pointer;
+}

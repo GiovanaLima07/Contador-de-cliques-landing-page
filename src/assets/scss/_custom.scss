@@ -1,0 +1,53 @@
+.navbar-custom {
+  background-color: $white;
+
+  .navbar-nav {
+    line-height: 1;
+
+    .nav-item {
+
+      .nav-link {
+        font-size: .875rem;
+        text-transform: uppercase;
+        padding: .75rem 1rem;
+
+
+        color: $gray-700;
+        ;
+        font-weight: 500;
+
+        &:hover {
+          color: $gray-900;
+        }
+      }
+    }
+  }
+}
+
+.text-xs {
+  font-size: $font-xs;
+}
+
+.btn-icon {
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  background-color: #1B3A6B !important;
+  color: rgba(255, 255, 255, 0.6);
+
+  .ft-links {
+    color: rgba(255, 255, 255, 0.6);
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+@import "./swiper/swiper";
+@import "./utilities"

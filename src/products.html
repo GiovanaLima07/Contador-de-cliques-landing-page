@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body class="font-sans text-gray-800">
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm px-4 py-3 navbar-custom">
+    <div class="container-fluid px-0">
+      <a class="navbar-brand" href="index.html">
+        <span class="d-flex flex-column text-uppercase text-xs fw-bold lh-sm">
+          <span class="" style="letter-spacing: .12rem;">Moveis</span>
+          <span>Planejados</span>
+        </span></a>
+      <div class="mx-auto  d-lg-block d-none">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">Sobre nós</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="products.html">Produtos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="contact.html">Contato</a>
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex align-items-center gap-4">
+        <a class="" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <section class="py-lg-8 py-5 text-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <h1 class="display-5 mb-3">Product List</h1>
+            <p class="text-muted  lead">
+              "Explore nossa linha completa de móveis e itens de decoração. Peças exclusivas, projetadas com alta
+              qualidade e requinte para trazer estilo, conforto e funcionalidade a cada ambiente da sua casa."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-lg-8 py-5">
+      <div class="container ">
+        <div class="row">
+          <aside class="col-lg-3 mb-4">
+            <h3 class="fw-semibold mb-3 h5 ">Filtros</h3>
+            <div class="mb-4 bg-light border bg-opacity-50 p-4">
+              <h6 class="fw-semibold mb-3 text-xs text-uppercase">Categorias</h6>
+              <ul class="list-unstyled lh-lg small mb-0">
+                <li><a href="#" class="text-dark">Sala de Estar</a></li>
+                <li><a href="#" class="text-dark">Quarto</a></li>
+                <li><a href="#" class="text-dark">Escritório</a></li>
+                <li><a href="#" class="text-dark">Decoração</a></li>
+              </ul>
+            </div>
+            <div class="mb-4 bg-light border bg-opacity-50 p-4">
+              <h6 class="fw-semibold mb-3 text-xs text-uppercase">Preço</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="price1">
+                <label class="form-check-label " for="price1">Abaixo de 100 reais</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="price2">
+                <label class="form-check-label" for="price2">100-300 reais</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="price3">
+                <label class="form-check-label" for="price3">Acima de 300 reais</label>
+              </div>
+            </div>
+            <div class="mb-4 bg-light border bg-opacity-50 p-4">
+              <h6 class="fw-semibold mb-3 text-xs text-uppercase">Cor</h6>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="col1">
+                <label class="form-check-label" for="col1">Cinza</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="col2">
+                <label class="form-check-label" for="col2">Preto</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="col3">
+                <label class="form-check-label" for="col3">Madeira</label>
+              </div>
+            </div>
+            <div class="d-grid">
+              <button class="btn btn-primary">Aplicar Filtros</button>
+            </div>
+          </aside>
+          <div class="col-lg-9">
+            <div class="row g-4">
+              <div class="col-12">
+                <div class=" d-flex flex-column flex-lg-row flex-row justify-content-between gap-4">
+                  <div class="col-sm-4 col-lg-3 offset-lg-9">
+                    <select class="form-select">
+                      <option value="" selected="">Sort by: Featured</option>
+                      <option value="Best selling">Best selling</option>
+                      <option value="Alphabetically, A-Z">Alphabetically, A-Z</option>
+                      <option value="Alphabetically, Z-A">Alphabetically, Z-A</option>
+                      <option value="Price, low to high">Price, low to high</option>
+                      <option value="Price, high to low">Price, high to low</option>
+                      <option value="Date, old to new">Date, old to new</option>
+                      <option value="Date, new to old">Date, new to old</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <div class="card product-card">
+                  <a href="#"><img src="./assets/images/product-img-1.jpg" class="card-img-top" alt="Product Name"></a>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <h3 class="h5 mb-1"> <a href="#">Cadeira moderna</a></h3>
+                      <div class="">
+                        <span class="fw-semibold text-decoration-line-through">R$ 480,00</span>
+                        <span class="">R$ 420,00</span>
+                      </div>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-sm">Adicionar ao Carrinho</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <div class="card product-card">
+                  <a href="#"><img src="./assets/images/product-img-2.jpg" class="card-img-top" alt="Product Name"></a>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <h3 class="h5 mb-1"> <a href="#">Lâmpada de Piso</a></h3>
+                      <div class="">
+                        <span class="fw-semibold text-decoration-line-through">R$ 950,00</span>
+                        <span class="">R$ 890,00</span>
+                      </div>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-sm">Adicionar ao Carrinho</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <div class="card product-card">
+                  <a href="#"><img src="./assets/images/product-img-5.jpg" class="card-img-top" alt="Product Name"></a>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <h3 class="h5 mb-1"> <a href="#">Cadeira de Escritório</a></h3>
+                      <div class="">
+                        <span class="fw-semibold text-decoration-line-through">R$ 780,00</span>
+                        <span class="">R$ 680,00</span>
+                      </div>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-sm">Adicionar ao Carrinho</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <div class="card product-card">
+                  <a href="#"><img src="./assets/images/product-img-6.jpg" class="card-img-top" alt="Product Name"></a>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <h3 class="h5 mb-1"> <a href="#">Fancy Metal Clock</a></h3>
+                      <div class="">
+                        <span class="fw-semibold text-decoration-line-through">R$ 780,00</span>
+                        <span class="">R$ 680,00</span>
+                      </div>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-sm">Adicionar ao Carrinho</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <div class="card product-card">
+                  <a href="#"><img src="./assets/images/product-img-3.jpg" class="card-img-top" alt="Product Name"></a>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <h3 class="h5 mb-1"> <a href="#">Comfort Chair</a></h3>
+                      <div class="">
+                        <span class="fw-semibold text-decoration-line-through">R$ 380,00</span>
+                        <span class="">R$ 280,00</span>
+                      </div>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-sm">Adicionar ao Carrinho</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <div class="card product-card">
+                  <a href="#"><img src="./assets/images/product-img-7.jpg" class="card-img-top" alt="Product Name"></a>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <h3 class="h5 mb-1"> <a href="#"></a></h3>
+                      <div class="">
+                        <span class="fw-semibold">R$ 280,00</span>
+                        <span class="">R$ 180,00</span>
+                      </div>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-sm">Adicionar ao Carrinho</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <nav class="mt-4">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">»</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-dark  pt-8 footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-12">
+          <a class="navbar-brand" href="#">
+            <span class="d-flex flex-column text-uppercase text-xs fw-bold lh-sm">
+              <span class="" style="letter-spacing: .12rem;">Moveis</span>
+              <span>Planejados</span>
+            </span></a>
+        </div>
+        <div class="col-lg-8 col-md-6 mb-4 d-flex justify-content-start justify-content-md-end gy-4">
+          <ul class="list-unstyled lh-lg d-flex flex-column flex-md-row gap-4">
+            <li><a href="#" class=" ft-links text-decoration-none">Home</a></li>
+            <li><a href="#" class=" ft-links text-decoration-none">Produtos</a></li>
+            <li><a href="#" class=" ft-links text-decoration-none">Sobre Nós</a></li>
+            <li><a href="#" class=" ft-links text-decoration-none">Contato</a></li>
+          </ul>
+        </div>
+        <div class="row justify-content-center align-items-center pt-lg-8 pb-4">
+          <div class="col-lg-6 col-md-6 mb-4">
+            <h2 class="display-3 text-white">Mundo dos moveis planejados</h2>
+          </div>
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="d-flex gap-3 justify-content-start justify-content-lg-end">
+              <a href="#" class="btn btn-outline-light btn-icon"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="btn btn-outline-light btn-icon"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="btn btn-outline-light btn-icon"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="btn btn-outline-light btn-icon"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center align-items-center py-lg-8">
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="d-flex flex-column">
+              <span class="h3 fw-light">Info@email.com</span>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="d-flex gap-3 justify-content-lg-end">
+              <a href="#" class="btn btn-outline-light">Entre em Contato</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </footer>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header px-4">
+      <a class="navbar-brand" href="#">
+        <span class="d-flex flex-column text-uppercase text-xs fw-bold lh-sm">
+          <span class="" style="letter-spacing: .12rem;">Moveis</span>
+          <span>Planejados</span>
+        </span></a>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="navbar-custom">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">Sobre Nós</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="products.html">Produtos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="contact.html">Contato</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./assets/js/main.js"></script>
+</body>
+
+</html>

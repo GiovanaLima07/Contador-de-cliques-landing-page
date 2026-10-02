@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+
+<body class="font-sans text-gray-800">
+
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm px-4 py-3 navbar-custom">
+    <div class="container-fluid px-0">
+      <a class="navbar-brand" href="index.html">
+        <span class="d-flex flex-column text-uppercase text-xs  lh-sm fw-bold">
+          <span class="" style="letter-spacing: .12rem;">Moveis</span>
+          <span>Planejados</span>
+        </span></a>
+
+      <div class="mx-auto  d-lg-block d-none">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">Sobre Nós</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="products.html">Produtos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="contact.html">Contato</a>
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex align-items-center gap-4">
+        <a class="" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+          </svg>
+        </a>
+
+      </div>
+    </div>
+  </nav>
+  <main>
+
+    <!-- Hero Section -->
+    <section class="py-lg-8 py-5 text-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <h1 class="display-5 mb-3">Entre em Contato</h1>
+            <p class="text-muted lead">
+              Adoraríamos ouvir você! Entre em contato com nossa equipe caso tenha alguma dúvida ou deixe o seu
+              feedback!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row g-5 align-items-start">
+          <!-- Contact Info -->
+          <div class="col-md-4">
+            <h4 class=" mb-4">Entre em Contato</h4>
+            <p class="text-muted mb-4">Se você tiver alguma dúvida sobre nossos produtos, precisar de ajuda ou
+              simplesmente quiser conversar sobre móveis — estamos aqui para você.</p>
+
+            <div class=" d-flex align-items-start mb-3">
+              <i class="bi bi-geo-alt-fill me-3 text-secondary"></i>
+              <div>
+                <h5 class="fw-semibold mb-1 text-uppercase text-xs">Endereço</h5>
+                <p class="text-muted mb-0">123 Rua dos Móveis, São Paulo, Brasil</p>
+              </div>
+            </div>
+
+            <div class=" d-flex align-items-start mb-3">
+              <i class="bi bi-envelope-fill me-3 text-secondary"></i>
+              <div>
+                <h5 class="fw-semibold mb-1 text-uppercase text-xs">Email</h6>
+                  <p class="text-muted mb-0 ">suporte@email.com</p>
+              </div>
+            </div>
+
+            <div class=" d-flex align-items-start mb-3">
+              <i class="bi bi-telephone-fill me-3 text-secondary"></i>
+              <div>
+                <h5 class="fw-semibold mb-1 text-uppercase text-xs">Phone</h6>
+                  <p class="text-muted mb-0 ">+11 900000000</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="col-md-8">
+            <div class="card ">
+              <div class="card-body p-lg-5">
+                <h4 class=" mb-4">Envie uma Mensagem</h4>
+                <form>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label">Nome Completo</label>
+                      <input type="text" class="form-control" placeholder="Seu nome" required />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Email</label>
+                      <input type="email" class="form-control" placeholder="seu@email.com" required />
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">Assunto</label>
+                      <input type="text" class="form-control" placeholder="Assunto" />
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">Mensagem</label>
+                      <textarea class="form-control" rows="5" placeholder="Escreva sua mensagem aqui..."></textarea>
+                    </div>
+                    <div class="col-12 text-end">
+                      <button type="submit" class="btn btn-dark px-4">Enviar Mensagem</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map -->
+        <div class="row mt-5">
+          <div class="col-12">
+            <div class="map-container shadow-sm">
+              <iframe src="https://www.google.com/maps?q=-23.5505,-46.6333&output=embed" width="100%" height="350"
+                style="border:0;" allowfullscreen="" loading="lazy">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+  <footer class="bg-dark  pt-8 footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-12">
+          <a class="navbar-brand" href="#">
+            <span class="d-flex flex-column text-uppercase text-xs fw-bold lh-sm">
+              <span class="" style="letter-spacing: .12rem;">Moveis</span>
+              <span>Planejados</span>
+            </span></a>
+        </div>
+        <div class="col-lg-8 col-md-6 mb-4 d-flex justify-content-start justify-content-md-end gy-4">
+          <ul class="list-unstyled lh-lg d-flex flex-column flex-md-row gap-4">
+            <li><a href="#" class=" ft-links text-decoration-none">Home</a></li>
+            <li><a href="#" class=" ft-links text-decoration-none">Produtos</a></li>
+            <li><a href="#" class=" ft-links text-decoration-none">Sobre Nós</a></li>
+            <li><a href="#" class=" ft-links text-decoration-none">Contato</a></li>
+          </ul>
+        </div>
+        <div class="row justify-content-center align-items-center pt-lg-8 pb-4">
+          <div class="col-lg-6 col-md-6 mb-4">
+            <h2 class="display-3 text-white">Mundo dos moveis planejados</h2>
+
+          </div>
+
+
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="d-flex gap-3 justify-content-start justify-content-lg-end">
+              <a href="#" class="btn btn-outline-light btn-icon"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="btn btn-outline-light btn-icon"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="btn btn-outline-light btn-icon"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="btn btn-outline-light btn-icon"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center align-items-center py-lg-8">
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="d-flex flex-column">
+              <span class="h3 fw-light">Info@email.com</span>
+            </div>
+          </div>
+
+
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="d-flex gap-3 justify-content-lg-end">
+              <a href="#" class="btn btn-outline-light">Entre em Contato</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </footer>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header px-4">
+      <a class="navbar-brand" href="#">
+        <span class="d-flex flex-column text-uppercase text-xs  lh-sm fw-bold">
+          <span class="" style="letter-spacing: .12rem;">Moveis</span>
+          <span>Planejados</span>
+        </span></a>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+
+      <div class="navbar-custom">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">Sobre Nós</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="products.html">Produtos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="contact.html">Contato</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./assets/js/main.js"></script>
+</body>
+
+</html>
