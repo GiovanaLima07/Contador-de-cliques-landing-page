@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel de cliques | Moveis Planejados</title>
+    <style>
+        :root {
+            --bg: #f6f5f2;
+            --card: #ffffff;
+            --text: #1a1a1a;
+            --muted: #6b6b6b;
+            --border: #e3e1dc;
+            --erro: #b3261e;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .pagina {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 32px 20px 48px;
+        }
+
+        header {
+            margin-bottom: 24px;
+        }
+
+        .marca {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .12rem;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        h1 {
+            margin: 6px 0 4px;
+            font-size: 28px;
+        }
+
+        .status {
+            margin: 0;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .status.erro {
+            color: var(--erro);
+        }
+
+        .cartoes {
+            display: grid;
+            gap: 16px;
+            margin-bottom: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .cartao,
+        .grafico {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .cartao .rotulo {
+            font-size: 14px;
+            color: var(--muted);
+            margin: 0 0 8px;
+        }
+
+        .cartao .valor {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .cartao .marcador {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .graficos {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        }
+
+        .grafico h2 {
+            margin: 0 0 16px;
+            font-size: 16px;
+        }
+
+        .area {
+            position: relative;
+            height: 320px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pagina">
+        <header>
+            <div class="marca">Moveis Planejados</div>
+            <h1>Cliques por produto</h1>
+            <p class="status" id="status" role="status">Carregando...</p>
+        </header>
+
+        <section class="cartoes" id="cartoes" aria-label="Total de cliques por produto"></section>
+
+        <section class="graficos">
+            <div class="grafico">
+                <h2>Total de cliques por produto</h2>
+                <div class="area">
+                    <canvas id="grafico-totais" role="img"
+                        aria-label="Gráfico de barras com o total de cliques de cada produto"></canvas>
+                </div>
+            </div>
+            <div class="grafico">
+                <h2>Cliques por hora (últimas 12 horas)</h2>
+                <div class="area">
+                    <canvas id="grafico-horas" role="img"
+                        aria-label="Gráfico de linhas com os cliques de cada produto por hora"></canvas>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
+    <script>
+        const API_URL = "https://lz24lf8mr6.execute-api.us-east-2.amazonaws.com";
+        const INTERVALO_MS = 5000;
+        const HORAS = 12;
+
+        const PRODUTOS = [
+            { id: "comoda-madeira", nome: "Cômoda de madeira", cor: "#8a5a2b" },
+            { id: "comoda-azul", nome: "Cômoda azul de madeira", cor: "#2f5d9a" },
+            { id: "comoda-vintage", nome: "Cômoda vintage", cor: "#5b8c5a" },
+        ];
+
+        const statusEl = document.getElementById("status");
+        const cartoesEl = document.getElementById("cartoes");
+
+        // Cartões com os totais (criados uma vez, só o número muda)
+        const valores = {};
+        function criarCartao(id, nome, cor) {
+            const cartao = document.createElement("div");
+            cartao.className = "cartao";
+            const rotulo = document.createElement("p");
+            rotulo.className = "rotulo";
+            if (cor) {
+                const marcador = document.createElement("span");
+                marcador.className = "marcador";
+                marcador.style.background = cor;
+                rotulo.appendChild(marcador);
+            }
+            rotulo.appendChild(document.createTextNode(nome));
+            const valor = document.createElement("p");
+            valor.className = "valor";
+            valor.textContent = "0";
+            cartao.append(rotulo, valor);
+            cartoesEl.appendChild(cartao);
+            valores[id] = valor;
+        }
+        PRODUTOS.forEach((p) => criarCartao(p.id, p.nome, p.cor));
+        criarCartao("soma", "Total geral", null);
+
+        // Gráfico de barras: total por produto
+        const graficoTotais = new Chart(document.getElementById("grafico-totais"), {
+            type: "bar",
+            data: {
+                labels: PRODUTOS.map((p) => p.nome),
+                datasets: [{
+                    label: "Cliques",
+                    data: PRODUTOS.map(() => 0),
+                    backgroundColor: PRODUTOS.map((p) => p.cor),
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true, ticks: { precision: 0 } } },
+            },
+        });
+
+        // Gráfico de linhas: cliques por hora
+        const graficoHoras = new Chart(document.getElementById("grafico-horas"), {
+            type: "line",
+            data: {
+                labels: [],
+                datasets: PRODUTOS.map((p) => ({
+                    label: p.nome,
+                    data: [],
+                    borderColor: p.cor,
+                    backgroundColor: p.cor,
+                    tension: 0.3,
+                })),
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true, ticks: { precision: 0 } } },
+            },
+        });
+
+        // Chaves das últimas horas no horário de Brasília (mesmo formato da Lambda: 2026-10-07T16)
+        function chavesDasHoras() {
+            const chaves = [];
+            for (let i = HORAS - 1; i >= 0; i--) {
+                const d = new Date(Date.now() - 3 * 3600e3 - i * 3600e3);
+                chaves.push(d.toISOString().slice(0, 13));
+            }
+            return chaves;
+        }
+
+        function processar(itens) {
+            const totais = {};
+            const porHora = {};
+            PRODUTOS.forEach((p) => { totais[p.id] = 0; porHora[p.id] = {}; });
+            for (const item of itens) {
+                if (!(item.produto in totais)) continue;
+                if (item.periodo === "TOTAL") totais[item.produto] = item.cliques;
+                else porHora[item.produto][item.periodo] = item.cliques;
+            }
+            return { totais, porHora };
+        }
+
+        function desenhar({ totais, porHora }) {
+            let soma = 0;
+            PRODUTOS.forEach((p) => {
+                valores[p.id].textContent = totais[p.id];
+                soma += totais[p.id];
+            });
+            valores.soma.textContent = soma;
+
+            graficoTotais.data.datasets[0].data = PRODUTOS.map((p) => totais[p.id]);
+            graficoTotais.update();
+
+            const chaves = chavesDasHoras();
+            graficoHoras.data.labels = chaves.map((c) => c.slice(11) + "h");
+            PRODUTOS.forEach((p, i) => {
+                graficoHoras.data.datasets[i].data = chaves.map((c) => porHora[p.id][c] || 0);
+            });
+            graficoHoras.update();
+        }
+
+        async function atualizar() {
+            try {
+                const resposta = await fetch(`${API_URL}/cliques`);
+                if (!resposta.ok) throw new Error(`HTTP ${resposta.status}`);
+                const itens = await resposta.json();
+                desenhar(processar(itens));
+                statusEl.textContent = "Atualizado às " + new Date().toLocaleTimeString("pt-BR");
+                statusEl.classList.remove("erro");
+            } catch (erro) {
+                statusEl.textContent = "Não foi possível atualizar os dados. Tentando de novo...";
+                statusEl.classList.add("erro");
+            }
+        }
+
+        atualizar();
+        setInterval(() => { if (!document.hidden) atualizar(); }, INTERVALO_MS);
+    </script>
+</body>
+
+</html>
