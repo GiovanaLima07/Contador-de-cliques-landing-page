@@ -1,4 +1,4 @@
-const API_URL = "https://vw3d5efx48.execute-api.us-east-1.amazonaws.com";
+const API_URL = "https://lz24lf8mr6.execute-api.us-east-2.amazonaws.com";
 
 // Custom JS
 document.addEventListener('DOMContentLoaded', () => {
