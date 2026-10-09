@@ -4,6 +4,9 @@ Arquitetura serverless na AWS que registra quantos cliques cada produto de um ca
 
 O foco deste repositório é a infraestrutura na AWS. O site (Vite + Bootstrap) é só o cliente que consome a API, e as alterações feitas nele estão na seção [Alterações no site](#alterações-no-site).
 
+https://giovanalima07.github.io/Contador-de-cliques-landing-page/index.html
+https://giovanalima07.github.io/Contador-de-cliques-landing-page/painel.html
+
 ## Sumário
 
 - [Arquitetura](#arquitetura)
